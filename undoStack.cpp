@@ -1,13 +1,13 @@
 template<class T>
 class UndoStack {
 private:
-	const int capacity = 100;
+	const int capacity = 10;
 	int top, no_Of_Elements;
 	T* box;
 public:
 	UndoStack() {
 		// empty stack
-		top = end = -1;
+		top = -1;
 		box = new T [capacity];
 		
 	}
@@ -23,7 +23,10 @@ public:
 	void push(const T & data) {
 		top = next(top);
 		box[top] = data;
-		no_Of_Elements++;
+		
+		if (no_Of_Elements != capacity) {
+			no_Of_Elements++;
+		}
 	}
 	void pop() {
 		top = previous(top);
