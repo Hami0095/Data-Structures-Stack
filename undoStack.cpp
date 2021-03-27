@@ -1,7 +1,7 @@
 template<class T>
 class UndoStack {
 private:
-	const int capacity = 10;
+	const int capacity = 100;
 	int top, no_Of_Elements;
 	T* box;
 public:
