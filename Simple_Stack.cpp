@@ -131,4 +131,23 @@ public:
 		reverseStack();
 		push(x);
 	}
+	void sortStack() {
+		if (Empty())
+			return;
+		T x = Peek();
+		Pop();
+		sortStack();
+		sortedInsertion(x);
+	}
+	void sortedInsertion(int x) {
+		if (Empty() || x >= Peek()) {
+			Push(x);
+		}
+		else {
+			int temp = Peek();
+			sortedInsertion(x);
+			Push(temp);
+		}
+	}
+
 };
