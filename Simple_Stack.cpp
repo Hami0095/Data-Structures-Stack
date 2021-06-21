@@ -122,4 +122,13 @@ public:
 
 		return *this;
 	}
+	
+	void reverseStack() {
+		if (this->Empty())
+			return;
+		int x = peak();
+		pop();
+		reverseStack();
+		push(x);
+	}
 };
